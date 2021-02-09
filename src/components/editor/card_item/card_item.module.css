@@ -1,0 +1,35 @@
+@value makerWhite from '../../../common/colors.css';
+
+.card {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  margin-bottom: 2em;
+}
+.form {
+  width: 100%;
+  font-size: 0.8em;
+}
+.list_box {
+  width: 100%;
+}
+.list {
+  display: flex;
+  border: 1px solid #000;
+  background: makerWhite;
+}
+.list input,
+select {
+  width: 30px;
+  height: 30px;
+  flex: 1;
+}
+.list pre {
+  height: 50px;
+}
+.list button {
+  flex: 1;
+}
+.textarea {
+  flex-basis: 100%;
+}
