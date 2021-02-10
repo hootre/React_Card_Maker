@@ -46,7 +46,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
       delete updated[card.id];
       return updated;
     });
-    cardRepository.removeCard(use rId, card);
+    cardRepository.removeCard(userId, card);
   };
   return (
     <section className={styles.maker}>
