@@ -1,4 +1,4 @@
-# Stating React Project
+# Starting React Project
 
 React + Redux + ...
 
