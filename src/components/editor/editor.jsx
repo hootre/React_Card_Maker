@@ -4,6 +4,7 @@ import New_card_form from "../new_card_form/new_card_form";
 import Card_item from "./card_item/card_item";
 import styles from "./editor.module.css";
 const Editor = ({ FileInput, cards, updateCard, deleteCard }) => {
+  console.log(cards);
   return (
     <section className={styles.editor}>
       <h1 className={styles.title}>NEW Card Maker</h1>

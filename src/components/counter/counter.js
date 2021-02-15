@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Counter = ({ onIncrease, onDecrease, number, diff, onSetDiff }) => {
   const onChange = (e) => {
-    onSetDiff(parseInt(e.targer.value, 10));
+    onSetDiff(parseInt(e.target.value, 10));
   };
   return (
     <div>

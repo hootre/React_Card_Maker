@@ -3,6 +3,7 @@ import styles from "./App.module.css";
 import Login from "./components/login/login";
 import Maker from "./components/maker/maker";
 import CounterContainer from "./containers/counterContainer";
+import TodosContainer from "./containers/todosContainer";
 
 function App({ FileInput, authService, cardRepository }) {
   return (
@@ -21,6 +22,8 @@ function App({ FileInput, authService, cardRepository }) {
           </Route>
           <Route path="/redux">
             <CounterContainer />
+            <hr />
+            <TodosContainer />
           </Route>
         </Switch>
       </BrowserRouter>
