@@ -3,8 +3,8 @@ import { useHistory } from "react-router-dom";
 import Header from "../header/header";
 import Footer from "../footer/footer";
 import styles from "./maker.module.css";
-import Editor from "../editor/editor";
-import Preview from "../preview/preview";
+import Editor from "components/maker/editor/editor";
+import Preview from "components/maker/preview/preview";
 const Maker = ({ FileInput, authService, cardRepository }) => {
   const historyState = useHistory().state;
   const [cards, setCards] = useState({});

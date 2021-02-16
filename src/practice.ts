@@ -59,7 +59,6 @@ const circle = new Circle(5);
 const rectangle = new Rectangle(10, 5);
 
 console.log(circle.radius);
-console.log(rectangle.width);
 
 const shapes: Shape[] = [new Circle(5), new Rectangle(10, 5)];
 
@@ -93,5 +92,6 @@ type People = Person[]; // Person[] 를 이제 앞으로 People 이라는 타입
 const people: People = [person, expert];
 
 type Color = "red" | "orange" | "yellow";
-const color: Color = "red";
 const colors: Color[] = ["red", "orange"];
+
+export {};

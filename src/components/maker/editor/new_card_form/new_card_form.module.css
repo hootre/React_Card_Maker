@@ -1,10 +1,11 @@
-@value makerWhite from '../../../common/colors.css';
+@value makerWhite, makerLightGrey from '../../../../common/colors.css';
 
 .card {
   width: 80%;
   margin: 0 auto;
   display: flex;
-  margin-bottom: 2em;
+  border-bottom: 4px solid makerLightGrey;
+  margin-bottom: 5em;
 }
 .form {
   width: 100%;
@@ -12,22 +13,24 @@
 }
 .list_box {
   width: 100%;
+  margin-bottom: 2em;
 }
 .list {
   display: flex;
   border: 1px solid #000;
   background: makerWhite;
 }
-.list input,
+.list > input,
 select {
   width: 30px;
   height: 30px;
   flex: 1;
 }
-.list pre {
+.list > pre {
   height: 50px;
 }
-.list button {
+.list > button,
+.list > div {
   flex: 1;
 }
 .textarea {

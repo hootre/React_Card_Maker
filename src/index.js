@@ -10,8 +10,8 @@ import rootReducer from "./modules";
 
 import AuthService from "./service/auth_service";
 import ImageUploader from "./service/image_uploader";
-import Image_file_input from "./components/image_file_input/image_file_input";
 import CardRepository from "./service/card_repository";
+import Image_file_input from "./components/maker/editor/image_file_input/image_file_input";
 
 const authService = new AuthService();
 const cardRepository = new CardRepository();

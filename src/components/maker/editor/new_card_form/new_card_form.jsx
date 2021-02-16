@@ -1,69 +1,58 @@
-import React, { memo, useRef } from "react";
-import Button from "../../button/button";
-import styles from "./card_item.module.css";
+import React, { memo, useRef, useState } from "react";
+import Button from "components/button/button";
+import styles from "./new_card_form.module.css";
 
-const Card_item = memo(({ FileInput, card, updateCard, deleteCard }) => {
-  console.log("card_form");
+const New_card_form = memo(({ FileInput, onAdd }) => {
+  const formRef = useRef();
   const nameRef = useRef();
   const companyRef = useRef();
   const themeRef = useRef();
   const titleRef = useRef();
   const emailRef = useRef();
   const messageRef = useRef();
-  const {
-    name,
-    company,
-    title,
-    email,
-    message,
-    theme,
-    fileName,
-    fileURL,
-  } = card;
+  const [file, setFile] = useState({ fileName: null, fileURL: null });
+
   const onFileChange = (file) => {
-    updateCard({
-      ...card,
+    setFile({
       fileName: file.name,
       fileURL: file.url,
     });
   };
-  const onChange = (e) => {
-    if (e.target == null) {
-      return;
-    }
-    updateCard({
-      ...card,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const onSubmit = () => {
-    deleteCard(card);
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const card = {
+      id: Date.now(), //uuid
+      name: nameRef.current.value || "",
+      company: companyRef.current.value || "",
+      theme: themeRef.current.value,
+      title: titleRef.current.value || "",
+      email: emailRef.current.value || "",
+      message: messageRef.current.value || "",
+      fileName: file.fileName || "",
+      fileURL: file.fileURL || "",
+    };
+    formRef.current.reset();
+    setFile({ fileName: null, fileURL: null });
+    onAdd(card);
   };
   return (
     <article className={styles.card}>
-      <form action="" className={styles.form}>
+      <form ref={formRef} action="" className={styles.form}>
         <ul className={styles.list_box}>
           <li className={styles.list}>
             <input
               ref={nameRef}
               type="text"
               name="name"
-              defaultValue={name}
-              onChange={onChange}
+              placeholder="name..."
             />
             <input
               ref={companyRef}
               type="text"
               name="company"
-              defaultValue={company}
-              onChange={onChange}
+              placeholder="company..."
             />
-            <select
-              ref={themeRef}
-              name="theme"
-              defaultValue={theme}
-              onChange={onChange}
-            >
+            <select ref={themeRef} name="theme">
               <option value="dark">dark</option>
               <option value="light">light</option>
               <option value="colorful">colorful</option>
@@ -74,29 +63,26 @@ const Card_item = memo(({ FileInput, card, updateCard, deleteCard }) => {
               ref={titleRef}
               type="text"
               name="title"
-              defaultValue={title}
-              onChange={onChange}
+              placeholder="title..."
             />
             <input
               ref={emailRef}
               type="text"
               name="email"
-              defaultValue={email}
-              onChange={onChange}
+              placeholder="email..."
             />
           </li>
           <li className={styles.list}>
             <textarea
               ref={messageRef}
               name="message"
-              defaultValue={message}
               className={styles.textarea}
-              onChange={onChange}
+              placeholder="message..."
             />
           </li>
           <li className={styles.list}>
-            <FileInput name={fileName} onFileChange={onFileChange} />
-            <Button name="Delete" onClick={onSubmit} />
+            <FileInput name={file.fileName} onFileChange={onFileChange} />
+            <Button name="ADD" onClick={onSubmit} />
           </li>
         </ul>
       </form>
@@ -104,4 +90,4 @@ const Card_item = memo(({ FileInput, card, updateCard, deleteCard }) => {
   );
 });
 
-export default Card_item;
+export default New_card_form;

@@ -1,6 +1,5 @@
 import React from "react";
-import Button from "../button/button";
-import New_card_form from "../new_card_form/new_card_form";
+import New_card_form from "./new_card_form/new_card_form";
 import Card_item from "./card_item/card_item";
 import styles from "./editor.module.css";
 const Editor = ({ FileInput, cards, updateCard, deleteCard }) => {
